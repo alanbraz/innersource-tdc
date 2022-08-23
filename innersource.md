@@ -27,10 +27,7 @@ _paginate: false
 _footer: "[original email thread](https://bit.ly/2Jfg7Zb)"
 _class:  -->
 
-> Typically, this has involved helping large companies make the transition to open source but we've also worked with companies on what we call
-> **"inner sourcing"** -- that is, helping them to 
-> **use open source development techniques within the corporation**, or with a cluster of key customers -- 
-> even if they aren't ready to take the step all the way to releasing their software as a public open source project.
+> Typically, this has involved helping large companies make the transition to open source but we've also worked with companies on what we call **"inner sourcing"** -- that is, helping them to **use open source development techniques within the corporation**, or with a cluster of key customers -- even if they aren't ready to take the step all the way to releasing their software as a public open source project.
 
 _Tim O'Reilly (2000)_
 
@@ -150,7 +147,7 @@ p a {
 
 ---
 
-![bg right:35%](images/code.jpg)
+![bg right:30%](images/code.jpg)
 
 ### Vantagens
 
@@ -335,6 +332,7 @@ ul {
 <!-- 
 _header: ""
 _footer: "" 
+_paginate: false
 -->
 
 ![bg](images/pool-public.jpeg)
