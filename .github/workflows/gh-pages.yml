@@ -1,0 +1,40 @@
+name: marp-to-pages
+
+on:
+  push:
+    branches:
+      - main  # Set a branch to deploy
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: false  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Copy images
+        run: mkdir public && cp -R images public/
+
+      - name: Marp Build (HTML)
+        uses: docker://marpteam/marp-cli:v1.7.0
+        with:
+          args: innersource.md --allow-local-files --html -o public/index.html
+        env:
+          MARP_USER: root:root
+
+      - name: Marp Build (pdf)
+        uses: docker://marpteam/marp-cli:v1.7.0
+        with:
+          args: innersource.md --allow-local-files --html -o public/slides.pdf
+        env:
+          MARP_USER: root:root
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
